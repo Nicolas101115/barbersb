@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber SB</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        // Redirigir al login si no hay sesión activa
+        if (!localStorage.getItem('isLoggedIn')) {
+            alert('Debes iniciar sesión para acceder a esta página.');
+            window.location.href = 'login.html';
+        }
+    </script>
+    
+    <!-- Encabezado -->
+    <header>
+        <h1>BARBER SB</h1>
+        <p>Tu barbería de confianza</p>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="formulario.html">Formulario</a>
+        <a href="#" id="logoutBtn">Cerrar Sesión</a>
+    </nav>
+    
+    <script>
+        // Cerrar sesión y redirigir al login
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            localStorage.removeItem('isLoggedIn'); // Eliminar indicador de sesión
+            alert('Sesión cerrada.');
+            window.location.href = 'login.html'; // Redirigir al login
+        });
+    </script>    
+    <!-- Contenido principal -->
+    <div class="section">
+        <h2>Bienvenido a Barber SB</h2>
+        <p>En BARBER SB ofrecemos cortes de pelo de alta calidad y un ambiente cómodo y profesional.</p>
+    </div>
+
+    <!-- Enlace al video -->
+    <div class="section video-link">
+        <h2>Conoce nuestro Estilo</h2>
+        <p>Descubre más sobre nosotros en este video:</p>
+        <a href="https://www.youtube.com/watch?v=hsB2c_MPoAo" target="_blank" class="video-btn">Ver Video en YouTube</a>
+    </div>
+</body>
+</html>
+
